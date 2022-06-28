@@ -6,7 +6,7 @@ var PagamentosController = require('../controllers/pagamentosController')
 var FracoesController = require('../controllers/fracoesController')
 var MovimentosController = require('../controllers/movimentosController')
 
-router.get('/api/movimentos', function(req, res, next) {
+router.get('/movimentos', function(req, res, next) {
   if(req.query.groupBy=="Despesa" ||req.query.groupBy=="Receita") {
     MovimentosController.list_by_tipo(req.query.groupBy).then( value => {
       res.jsonp(value)
@@ -31,7 +31,7 @@ router.get('/api/movimentos', function(req, res, next) {
   }
 });
 
-router.get('/api/pagamentos', function(req, res, next) {
+router.get('/pagamentos', function(req, res, next) {
   if (req.query.status) {
      PagamentosController.find_debt_month(req.query.status).then( value => {
       res.jsonp(value)
@@ -46,7 +46,7 @@ router.get('/api/pagamentos', function(req, res, next) {
   })
 });
 
-router.get('/api/pagamentos/:id', function(req, res, next) {
+router.get('/pagamentos/:id', function(req, res, next) {
   PagamentosController.find_by_id(req.params.id).then( value => {
     res.jsonp(value)
   }).catch( error => {

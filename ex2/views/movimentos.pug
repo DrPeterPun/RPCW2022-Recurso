@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    a(href="/" ) 
+        p Voltar ao início
+    
+    form.w3-container(action='/pagamentos' method='POST' style='margin: 10px 250px;')
+            label Numero:
+            input.w3-input(type="text" name="numero" style="width: 40%;")
+            p
+            label Despesa:
+            input.w3-input(type="text" name="Despesas" style="width: 40%;")
+            p
+            label Data:
+            input.w3-input(type="text" name="Data" style="width: 40%;")
+            p
+            label Valor:
+            input.w3-input(type="text" name="Valor" style="width: 40%;")
+            p
+            label entidade:
+            input.w3-input(type="text" name="entidade" style="width: 40%;")
+            p
+            label Descricao:
+            input.w3-input(type="text" name="Descricao" style="width: 40%;")
+            p
+            input.w3-btn.w3-2020-mosaic-blue(type="submit" value="submit")
+    table 
+      tr
+        th Numero
+        th Despesa
+        th Data
+        th Valor
+        th entidade
+        th Descricao
+      each i in movimentos
+        tr
+          td
+          td= i.Numero
+          td= i.Despesa
+          td= i.Data
+          td= i.Valor
+          td= i.entidade
+          td= i.Descricao

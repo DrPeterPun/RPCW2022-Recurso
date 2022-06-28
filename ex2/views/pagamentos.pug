@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    a(href="/" ) 
+        p Voltar ao início
+    
+    form.w3-container(action='/pagamentos' method='POST' style='margin: 10px 250px;')
+            label Fracao:
+            input.w3-input(type="text" name="numero" style="width: 40%;")
+            p
+            label Mes:
+            input.w3-input(type="text" name="mes" style="width: 40%;")
+            p
+            input.w3-btn.w3-2020-mosaic-blue(type="submit" value="submit")
+    table 
+      tr
+        th Fracao
+        th Jan
+        th Fev
+        th Mar
+        th Ago 
+        th Mai
+        th Jun
+        th Jul
+        th Ago
+        th Set
+        th Out
+        th Nov
+        th Dez 
+      each i in Pagamentos
+        tr
+          td
+          td= i.Fracao
+          td= i.Jan
+          td= i.Fev
+          td= i.Mar
+          td= i.Ago
+          td= i.Mai
+          td= i.Jun
+          td= i.Jul
+          td= i.Ago
+          td= i.Set
+          td= i.Out
+          td= i.Nov
+          td= i.Dez

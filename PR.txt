@@ -1,0 +1,5 @@
+EX1:
+Para a permanencia de dados do ex1 criei um parser em python que le os csv's
+todos e cria ficheiros json prontos a ser importados para o mongo com o comando
+$ monogoimport -db CONDOMINIO --collection <fracoes/movimentos/pagamentos> --file <fracoes/movimentos/pagamentos>.json --jsonArraya
+

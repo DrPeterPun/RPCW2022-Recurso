@@ -6,7 +6,7 @@ var logger = require('morgan');
 var apiRouter = require('./routes/api');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/MAPA2022'
+var mongoDB = 'mongodb://127.0.0.1/CONDOMINIO'
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 
 var db = mongoose.connection

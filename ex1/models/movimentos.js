@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const CidadeSchema = new mongoose.Schema({
+const MovimentosSchema = new mongoose.Schema({
     _id: String,
     Numero: String,
     Tipo: String,
@@ -10,4 +10,4 @@ const CidadeSchema = new mongoose.Schema({
     Descricao: String,
 })
 
-module.exports = mongoose.model("cidade", CidadeSchema)
+module.exports = mongoose.model("moviementos",MovimentosSchema)

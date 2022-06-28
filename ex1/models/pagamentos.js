@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const CidadeSchema = new mongoose.Schema({
+const PagamentosSchema = new mongoose.Schema({
     _id: String,
     Fracao: Number,
     Jan: Number,
@@ -17,4 +17,4 @@ const CidadeSchema = new mongoose.Schema({
     Dez: Number,
 })
 
-module.exports = mongoose.model("cidade", CidadeSchema)
+module.exports = mongoose.model("pagamentos", PagamentosSchema)

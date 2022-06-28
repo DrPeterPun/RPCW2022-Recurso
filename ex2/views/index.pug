@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+block content
+  div.h-screen.bg-slate-600.text-white
+    div.flex.flex-col.justify-center.items-center.w-full.h-full.gap-24.px-16(class="2xl:px-[20%]")
+      h1.font-bold.text-8xl.text-center Condominio
+      div.flex.gap-32
+        a(href="movimentos" class="bg-slate-800 w-64 h-24 flex justify-center items-center rounded-xl text-2xl hover:bg-slate-700 cursor-pointer shadow-lg") Movimentos
+        a(href="pagamentos" class="bg-slate-800 w-64 h-24 flex justify-center items-center rounded-xl text-2xl hover:bg-slate-700 cursor-pointer shadow-lg") Pagamento
+        a total pago:a
+        p=pago
+        a total recebido: 
+        p=recebido
