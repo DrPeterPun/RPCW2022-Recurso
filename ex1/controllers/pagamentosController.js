@@ -14,7 +14,7 @@ module.exports.find_debt_month = (month) => {
     return Pagamentos.find({month: month}).exec()
 }
 
-module.exports.add_pagamento = (l) => {
-    var n = new Pagamentos(l)
-    return n.save()
+module.exports.add_pagamento = (mes,fracao) => {
+    let r = Log.findOneAndUpdate({fracao: l.fracao}, {mes: 1}, {new: true, strict:false}) 
+    return r
 }

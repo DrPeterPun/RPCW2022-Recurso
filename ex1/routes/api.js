@@ -63,7 +63,7 @@ router.post('/api/movimentos', function(req, res){
 })
  
 router.post('/api/pagamentos', function(req, res){
-  PagamentosController.add_pagamento(req.body).then( value => {
+  PagamentosController.add_pagamento(req.body.mes,req.body.fracao).then( value => {
     res.jsonp(value)
   }).catch( error => {
     res.status(500).jsonp({error: error})

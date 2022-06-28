@@ -2,4 +2,9 @@ EX1:
 Para a permanencia de dados do ex1 criei um parser em python que le os csv's
 todos e cria ficheiros json prontos a ser importados para o mongo com o comando
 $ monogoimport -db CONDOMINIO --collection <fracoes/movimentos/pagamentos> --file <fracoes/movimentos/pagamentos>.json --jsonArraya
+este servidor escuta por pedidos na porta 3000
+
+EX2:
+o servidor criado para este ex escuta na porta 3001, os pedidos a api foram feitos todos assumindo que esta a correr na porta 3000.
+
 

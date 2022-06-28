@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-let  api= ""
+var axios = require('axios')
+let  api= "http://localhost:3000/api"
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let pago =0
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
         }
         res.render('index', { pago:pago, recebido:recebido})
       })).catch( error => {
-        res.status(500).send("<p>Erro na obtenção do token!</p>")
+        res.status(500).send("<p>Erro na conexao a api</p>")
       })
 });
 
@@ -31,7 +32,10 @@ router.get('/movimentos', function(req, res, next) {
     response => {
       res.render("movimentos",{movimentos:response.data})
     }
-  )
+  ).catch( error => {
+        res.status(500).send("<p>Erro na conexao a api</p>")
+      })
+
 
 })
 
@@ -40,7 +44,10 @@ router.get('/pagamentos', function(req, res, next) {
     response => {
       res.render("pagamentos",{movimentos:response.data})
     }
-  )
+  ).catch( error => {
+        res.status(500).send("<p>Erro na conexao a api</p>")
+      })
+
 })
 
 router.post('/movimentos', function(req, res, next) {
@@ -48,7 +55,9 @@ router.post('/movimentos', function(req, res, next) {
     response => {
       res.redirect('/movimentos')
     }
-  )
+  ).catch( error => {
+        res.status(500).send("<p>Erro na conexao a api</p>")
+      })
 
 })
 
@@ -57,7 +66,10 @@ router.post('/pagamentos', function(req, res, next) {
     response => {
       res.redirect('/pagamentos')
     }
-  )
+  ).catch( error => {
+        res.status(500).send("<p>Erro na conexao a api</p>")
+      })
+
 })
 
 
