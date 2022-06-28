@@ -1,84 +1,73 @@
 import json
 import csv
-dic = {}
+dic = []
 #colecao pagamentos
 meses = ["Fracao","Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set" ,"Out","Nov","Dez"]
+
 with open('pagamentos.csv') as pag:
     pr = csv.reader(pag,delimiter=',')
     for row in pr:
-
-        dic[row[0]] = row[1:]
+        dic.append(row) 
         #print(', '.join((row)))
-newd={}
-for a,b in dic.items():
-    newd[a] = {}
-    for i in range(len(b)):
-        print(dic[a])
+print(dic)
+newd=[]
+for j in range(len(dic)):
+    newd.append({})
+    for i in range(len(dic[j])):
+        print(dic[j])
         print(i)
-        if dic[a][i]=='':
-            dic[a][i]="0"
-        newd[a][meses[i]] = dic[a][i]
+        if dic[j][i]=='':
+            dic[j][i]=0
+        elif i!= 0:
+            dic[j][i]=1
+        newd[j][meses[i]] = dic[j][i]
 
-jlist =[]
-for a,b in newd.items():
-    jlist.append({a:b})
 
 fj = open("pagamentos.json","w")
-js = json.dump(jlist,fj, indent=2,ensure_ascii=False)
+js = json.dump(newd,fj, indent=2,ensure_ascii=False)
 
 
 #....
-dic = {}
+dic = []
 vs = ["Numero","Tipo","Data","Valor","entidade","Descricao"]
-with open('receitas.csv') as rec:
-    rr = csv.reader(rec,delimiter=',')
-    for row in rr:
-
-        dic[row[0]] = row
+with open('receitas.csv') as pag:
+    pr = csv.reader(pag,delimiter=',')
+    for row in pr:
+        dic.append(row) 
         #print(', '.join((row)))
-newd={}
-for a,b in dic.items():
-    newd[a] = {}
-    for i in range(len(b)):
-        print(dic[a])
-        print(i)
-        if dic[a][i]=='':
-            dic[a][i]="0"
-        newd[a][vs[i]] = dic[a][i]
-
-jlist = []
-for a,b in newd.items():
-    jlist.append({a:b})
+print(dic)
+newd=[]
+for j in range(len(dic)):
+    newd.append({})
+    for i in range(len(dic[j])):
+        if i ==3:
+            newd[j][vs[i]] = float(dic[j][i])
+        else:
+            newd[j][vs[i]] = dic[j][i]
 
 fj = open("movimentos.json","w")
-js = json.dump(jlist,fj, indent=2,ensure_ascii=False)
+js = json.dump(newd,fj, indent=2,ensure_ascii=False)
+
 
 #....
-dic = {}
+dic = []
 vs = ["Fracao","Permilagem","Mensalidade"]
-with open('fracoes.csv') as rec:
-    rr = csv.reader(rec,delimiter=',')
-    for row in rr:
-
-        dic[row[0]] = row[1:]
+with open('fracoes.csv') as pag:
+    pr = csv.reader(pag,delimiter=',')
+    for row in pr:
+        dic.append(row) 
         #print(', '.join((row)))
-newd={}
-for a,b in dic.items():
-    newd[a] = {}
-    for i in range(len(b)):
-        print(dic[a])
-        print(i)
-        if dic[a][i]=='':
-            dic[a][i]="0"
-        newd[a][vs[i]] = dic[a][i]
-
-jlist = []
-for a,b in newd.items():
-    jlist.append({a:b})
+print(dic)
+newd=[]
+for j in range(len(dic)):
+    newd.append({})
+    for i in range(len(dic[j])):
+        if not i==0:
+            newd[j][vs[i]] = float(dic[j][i])
+        else:
+            newd[j][vs[i]] = dic[j][i]
 
 fj = open("fracoes.json","w")
-js = json.dump(jlist,fj, indent=2,ensure_ascii=False)
-
-
+js = json.dump(newd,fj, indent=2,ensure_ascii=False)
 
 print(js)
